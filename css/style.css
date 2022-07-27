@@ -384,7 +384,7 @@ p {
 }
 
 .main-header {
-    background-image: url(/images/banner-01.jpg);
+    background-image: url(/images/kwara-agric.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.4);
@@ -417,7 +417,7 @@ p {
 }
 
 .farm-section {
-    background-image: url(/images/blog-img.jpg);
+    background-image: url(/images/maize-plantation.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.4);
@@ -431,7 +431,7 @@ p {
 
 
 .celebrate-section {
-    background-image: url(/images/about-img.jpg);
+    background-image: url(/images/oil-palm-plantation-in-thailand.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.4);
@@ -442,7 +442,22 @@ p {
     place-items: center;
 
 }
+.celebration-section2 {
+    background-image: url(/images/coconut-tree-forest-kho-chang-island-thailand-37790741.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: darken;
+margin-top: 6rem;
+    height: 40rem;
+    display: flex;
+    place-items: center;
 
+}
+
+.footer-main{
+    margin-top: 6rem;
+}
 
 .search a {
     color: #b0b435;
