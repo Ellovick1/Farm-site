@@ -11,13 +11,13 @@
 
     <!-- Site Metas -->
     <title>Ogotex Agro Industries Limited</title>
-    <meta name="keywords" content="">
+    <!-- <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content=""> -->
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="apple-touch-icon" href="images/apple-touch-icon.png"> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -27,21 +27,63 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
-     <!-- Fontawesome Link -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Fontawesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- CSS SWEET ALERT LINK -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('v7eoYxn7JLDsLc3X6');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_208h3f3', 'ogotex', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                        // alert('success')
+                        
+              
 
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+
+
+
+        
+        // document.querySelector(".first").addEventListener('click', function (event){
+        //     event.preventDefault();
+        //     swal({
+        //         title: "Success!",
+        //         text: "Succesfully added item to cart",
+        //         type: "success",
+        //         timer: 2000,
+        //         showConfirmButton: false
+        //       }, function(){
+        //             window.location.href = "/contact-us.html";
+        //       })
+        // });
+
+    </script>
 </head>
 
 <body>
-
-
-
 
 
     <!-- Start Main Top -->
@@ -51,12 +93,14 @@
             <div class="container ">
                 <!-- Start Header Navigation -->
                 <div class="navbar-header">
-                    <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbar-menu"
-                        aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler text-white" type="button" data-toggle="collapse"
+                        data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
                     <!-- <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo" alt=""></a> -->
-                    <a class="navbar-brand font-weight-bold text-white" href="index.html">OGOTEX AGRO INDUSTRIES LIMITED</a>
+                    <a class="navbar-brand font-weight-bold text-white" href="index.html">OGOTEX AGRO INDUSTRIES
+                        LIMITED</a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -66,17 +110,18 @@
                         <!-- <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> -->
                         <li class="nav-item "><a class="nav-link py-3 text-white" href="about.html">ABOUT US</a></li>
                         <li class="nav-item "><a class="nav-link py-3 text-white" href="the-farm.html">THE FARM</a></li>
-                       
+
                         <li class="nav-item "><a class="nav-link py-3 text-white" href="gallery.html">INDUSTRY</a></li>
-                        <li class="nav-item "><a class="nav-link py-3 text-white" href="contact-us.html">CONTACT US</a></li>
+                        <li class="nav-item "><a class="nav-link py-3 text-white" href="contact-us.html">CONTACT US</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
 
-               
+
             </div>
 
-        
+
         </nav>
         <!-- End Navigation -->
 
@@ -97,29 +142,32 @@
             <div class="row">
                 <div class="col-lg-10 m-auto col-sm-12">
                     <div class="contact-form-right">
-                       <div class="mb-5">
-                        <h1 class="font-weight-bold">CONTACT US</h1>
-                       </div> 
-                       
+                        <div class="mb-5">
+                            <h1 class="font-weight-bold">CONTACT US</h1>
+                        </div>
+
                         <div class="sqs-block-content">
-                            <h3 ><strong>Please note:</strong> <em>Don't submit
+                            <h3><strong>Please note:</strong> <em>Don't submit
                                     Without filling this form.</em></h3>
 
 
                         </div>
-                        <form id="contactForm">
+
+                        <form id="contact-form" onsubmit="return false">
+                            <input type="hidden" name="contact_number">
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="mb-0" for="">Name *</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder=""
-                                            required data-error="Please enter your first name">
+                                        <input type="text" class="form-control" id="name" name="user_name"
+                                            placeholder="" required data-error="Please enter your first name">
                                         <div class="help-block with-errors"></div>
-                                        <small>First Name</small>
+                                        <small>Name</small>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for=""> </label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder=""
@@ -127,42 +175,57 @@
                                         <div class="help-block with-errors"></div>
                                         <small>Last Name</small>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Email Address *</label>
-                                        <input type="text" placeholder="" id="email" class="form-control" name="name"
-                                            required data-error="Please enter your email">
+                                        <input type="text" placeholder="" id="email" class="form-control"
+                                            name="user_email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Subject *</label>
-                                        <input type="text" class="form-control" id="subject" name="name" placeholder=""
-                                            required data-error="Please enter your Subject">
+                                        <input type="text" class="form-control"  name="name" placeholder=""
+                                           >
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Message *</label>
-                                        <textarea class="form-control" id="message" placeholder="" rows="4"
-                                        data-error="Write your message" required></textarea>
+                                        <textarea class="form-control" placeholder="" rows="4"
+                                            name="message"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-end">
-                                        <!-- <a href="mailto:ogotexplc2018@yahoo.com?subject=subject&cc=cc@yahoo.com" target="_blank">maillllllll link</a> -->
-                                        <button class="btn hvr-hover" id="submit" type="submit">
-                                           <a href="mailto:ogotexplc2018@yahoo.com?subject=subject&cc=cc@yahoo.com" target="_blank" target="_blank" rel="noopener noreferrer">SUBMIT</a></button>
-                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <input type="submit" value="Send" class="first" />
+
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                       
+
+
+
+
+
+
+                        <!-- <form id="contact-form">
+                            <input type="hidden" name="contact_number">
+                            <label>Name</label>
+                            <input type="text" name="user_name">
+                            <label>Email</label>
+                            <input type="email" name="user_email">
+                            <label>Message</label>
+                            <textarea name="message"></textarea>
+                            <input type="submit" value="Send">
+                        </form> -->
+
+
                     </div>
                 </div>
 
@@ -178,15 +241,15 @@
     <footer>
         <div class="footer-main">
             <div class="container">
-             
-                
+
+
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
                             <h4>About Ogotex Agro Industries</h4>
-                            <p>Ogotex Agro Industries Limited is owned and operated, growing 
-                             high quality hops, produce, poultry farm, fish farming, 
-                            Domestic pigs farming, palm trees, coconut trees.</p>
+                            <p>Ogotex Agro Industries Limited is owned and operated, growing
+                                high quality hops, produce, poultry farm, fish farming,
+                                Domestic pigs farming, palm trees, coconut trees.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
@@ -195,7 +258,7 @@
                             <ul>
                                 <li><a href="about.html">About Us</a></li>
                                 <li><a href="tel:+234-8022242606">Customer Service</a></li>
-                        
+
                             </ul>
                         </div>
                     </div>
@@ -204,7 +267,8 @@
                             <h4>Contact Us</h4>
                             <ul>
                                 <li>
-                                    <p><i class="fas fa-map-marker-alt"></i>Location: Plot 771 Amuwo Odofin, <br>Festac link rd,<br> Lagos Nigeria. </p>
+                                    <p><i class="fas fa-map-marker-alt"></i>Location: Plot 771 Amuwo Odofin, <br>Festac
+                                        link rd,<br> Lagos Nigeria. </p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-phone-square"></i>Phone: <a
@@ -234,22 +298,9 @@
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
-    <!-- ALL JS FILES -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="js/jquery.superslides.min.js"></script>
-    <script src="js/bootstrap-select.js"></script>
-    <script src="js/inewsticker.js"></script>
-    <script src="js/bootsnav.js."></script>
-    <script src="js/images-loded.min.js"></script>
-    <script src="js/isotope.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/baguetteBox.min.js"></script>
-    <script src="js/form-validator.min.js"></script>
-    <script src="js/contact-form-script.js"></script>
-    <script src="js/custom.js"></script>
+
+
+
 </body>
 
 </html>
